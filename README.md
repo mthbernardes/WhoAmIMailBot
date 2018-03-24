@@ -7,7 +7,7 @@ A service to mask your e-mails, it was inspired by [Blur](https://abine.com/) se
 Basically you need a domain, to not expend money you can use no-ip services, one VPS that allows smtp outbound, a telegram bot id, your telegram user id and this project, when you have all these things, you're ready to go.
 Your VPS will run a postfix that'll just redirect e-mails using the postfix function of virtual alias, where you set a e-mail address to redirect all incoming messages to another e-mail, the no-ip domain will be domain wich you'll use on your alias e-mails, and the telegram bot will manage your alias.
 
-![diagram][diagram.png]
+![diagram][https://github.com/mthbernardes/WhoAmIMailBot/diagram.png]
 
 # Install
 ```bash
