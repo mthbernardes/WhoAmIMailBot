@@ -35,17 +35,15 @@ or
 docker run -d -p 25:25 --name whoamimailbot -v /data/postfix/:/data -e TELEGRAM_BOT_TOKEN="BOT_TOKEN" -e TELEGRAM_USER_ID="USER_ID" -e FAKE_DOMAIN="mail.example.com" btamburi/whoamimailbot
 ```
 
-
 ### Environment variables
 
 
 This image uses environment variables to allow the configuration of some parameteres at run time:
 
-* **TELEGRAM_BOT_TOKEN**: Telegram bot token (Use: [@BotFather](https://telegram.me/botfather))
-* **TELEGRAM_USER_ID**: Your Telegram ID (Use: [@my_id_bot](https://telegram.me/my_id_bot))
+* **TELEGRAM_BOT_TOKEN**: Telegram bot token. (Use: [@BotFather](https://telegram.me/botfather))
+* **TELEGRAM_USER_ID**: Your Telegram ID. (Use: [@my_id_bot](https://telegram.me/my_id_bot))
 * **FAKE_DOMAIN**: Your fake domain for receive email. (Example: mailbot.ddns.net )
 
-# 
 
 ### Usage
 On your telegram bot you have the follow commands,
