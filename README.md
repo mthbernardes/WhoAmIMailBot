@@ -13,7 +13,7 @@ You will need:
 
 Your VPS will run a postfix that will redirect e-mails using the postfix function of virtual alias (where you can set an e-mail address to redirect all incoming messages to another e-mail), the no-ip domain will be the domain which you'll use on your alias e-mails and the telegram bot will manage your alias. So:
 
-![diagram](https://i.imgur.com/vw20cOy.png)
+![diagram](diagram.png)
 
 ### Installation
 
