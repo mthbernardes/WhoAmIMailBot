@@ -15,20 +15,42 @@ Your VPS will run a postfix that will redirect e-mails using the postfix functio
 
 ![diagram](diagram.png)
 
-### Install
+### Installation
+
+- From source
 ```bash
 git clone https://github.com/mthbernardes/WhoAmIMailBot.git
 cd WhoAmIMailBot
-docker build -t whoamimailbot --build-arg domain=your-domain-goes-here.ddns.net  .
-docker run -p 25:25 -d -v /data/postfix/:/data whoamimailbot -t telegram-bot-api -d your-domain-goes-here.ddns.net -i your-telegram-user-id,another-telegram-user-id
+docker build -t whoamimailbot .
+docker run -d -p 25:25 --name whoamimailbot -v /data/postfix/:/data -e TELEGRAM_BOT_TOKEN="BOT_TOKEN" -e TELEGRAM_USER_ID="USER_ID" -e FAKE_DOMAIN="mail.example.com" whoamimailbot
 ```
+- From Hub Docker
+
+You can download the image using the following command:
+```bash
+docker pull btamburi/whoamimailbot
+``` 
+or
+```bash
+docker run -d -p 25:25 --name whoamimailbot -v /data/postfix/:/data -e TELEGRAM_BOT_TOKEN="BOT_TOKEN" -e TELEGRAM_USER_ID="USER_ID" -e FAKE_DOMAIN="mail.example.com" btamburi/whoamimailbot
+```
+
+### Environment variables
+
+
+This image uses environment variables to allow the configuration of some parameteres at run time:
+
+* **TELEGRAM_BOT_TOKEN**: Telegram bot token. (Use: [@BotFather](https://telegram.me/botfather))
+* **TELEGRAM_USER_ID**: Your Telegram ID. (Use: [@my_id_bot](https://telegram.me/my_id_bot))
+* **FAKE_DOMAIN**: Your fake domain for receive email. (Example: mailbot.ddns.net )
+
 
 ### Usage
 On your telegram bot you have the follow commands,
 
 | Command		| Description				|
 | --------------------- |:-------------------------------------:|
-| /list			| List all available aliasi		|
+| /list			| List all available aliases	|
 | /new mail@mail.com	| Create a new alias for the given mail |
-| /delete bystring	| Delete alias by a given string	|
+| /delete string	| Delete alias by a given string	|
 
